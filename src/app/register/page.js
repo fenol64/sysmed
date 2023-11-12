@@ -61,7 +61,7 @@ function LoginPage() {
 						</button>
 					</div>
 					<p className="text-center">
-						Já tem uma conta? <a href="/login">Entrar</a>
+						Já tem uma conta? <a href="/">Entrar</a>
 					</p>
 				</form>
 			</div>
