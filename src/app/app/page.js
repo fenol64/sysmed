@@ -85,7 +85,7 @@ function app() {
             <div className="d-flex" role="search">
             <button className="btn btn-outline-danger" type="submit" onClick={() => {
                 localStorage.removeItem('user');
-                window.location.href = '/login';
+                window.location.href = '/';
             }}>Sair</button>
             </div>
         </div>
