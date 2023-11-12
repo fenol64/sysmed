@@ -22,7 +22,7 @@ function LoginPage() {
     try {
     const res = await axios.post('/api/user', payoad);
       alert('Usuário cadastrado com sucesso');
-      window.location.href = '/login';
+      window.location.href = '/';
     } catch(err) {
         if (err.response?.data?.error) {
           alert(err.response.data.error);
