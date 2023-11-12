@@ -83,7 +83,10 @@ function app() {
             <a className="navbar-brand">SysMed</a>
             </div>
             <div className="d-flex" role="search">
-            <button className="btn btn-outline-danger" type="submit">Sair</button>
+            <button className="btn btn-outline-danger" type="submit" onClick={() => {
+                localStorage.removeItem('user');
+                window.location.href = '/login';
+            }}>Sair</button>
             </div>
         </div>
     </nav>
