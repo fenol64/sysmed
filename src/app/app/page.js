@@ -59,6 +59,8 @@ function app() {
         })
         .catch((error) => {
             console.error('Error:', error);
+        }).finally(() => {
+            setLoading(false);
         });
     }
 
@@ -91,9 +93,6 @@ function app() {
         </div>
     </nav>
     <div className="container">
-        {loading ? <div className="text center spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div> : <>
         <div className="my-3 row">
             <div className="col-12 col-md-9">
                 <h4>Bem vindo, {user.name}</h4>
@@ -113,6 +112,8 @@ function app() {
                         </tr>
                     </thead>
                     <tbody>
+                        {loading && <tr><td colSpan={3} className="text-center">Carregando...</td></tr>
+                        }
 
                         {appointments.length > 0 && appointments.map(appointment => <tr key={appointment.id}>
                             <td>{appointment.pacient_document}</td>
@@ -124,7 +125,6 @@ function app() {
             </div>
 
         </div>
-        </>}
     </div>
     <div ref={modal_ref} className="modal fade" id="newAppointment" tabIndex={-1} aria-labelledby="newAppointmentLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-lg">
