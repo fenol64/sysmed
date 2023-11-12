@@ -31,7 +31,7 @@ function app() {
 
 
         setLoading(true);
-        fetch('http://localhost:3000/api/appointments', {
+        fetch('/api/appointments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ function app() {
 
     const getAppointments = (user_id) => {
         setLoading(true);
-        fetch(`http://localhost:3000/api/appointments?user_id=${user_id ?? user.id}`)
+        fetch(`/api/appointments?user_id=${user_id ?? user.id}`)
         .then(response => response.json())
         .then(data => {
             setLoading(false);
@@ -73,7 +73,7 @@ function app() {
             setUser(user_parsed);
             getAppointments(user_parsed.id);
         } else {
-            window.location.href = '/login';
+            window.location.href = '/';
         }
     }, []);
 
