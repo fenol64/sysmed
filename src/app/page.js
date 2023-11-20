@@ -19,7 +19,7 @@ function LoginPage() {
 		}
 
 		try {
-			const res = await axios.get('/api/user', payload);
+			const res = await axios.get('/api/user', {params: payload});
 
 			if (remember) {
 				localStorage.setItem('user', JSON.stringify(res.data));
@@ -30,12 +30,14 @@ function LoginPage() {
 				delete res.data[0].passwd;
 				localStorage.setItem('user', JSON.stringify(res.data[0]));
 				window.location.href = '/app';
+			} else {
+				throw new Error('Usuário ou senha inválidos');
 			}
 		} catch(err) {
 			if (err.response?.data?.error) {
 				alert(err.response.data.error);
 			} else {
-				alert('Erro ao cadastrar usuário');
+				alert('Erro ao efetuar login');
 			}
 		}
 
